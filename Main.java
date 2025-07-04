@@ -16,6 +16,11 @@ public class Main {
         Scanner sc = new Scanner(System.in); 
         System.out.print("Enter no of Root couples to begin with: ");
         int rootNum = sc.nextInt();
+        System.out.println("Enter child birth range:");
+        System.out.print("Min Range:");
+        int min = sc.nextInt();
+        System.out.print("Max Range:");
+        int max = sc.nextInt();
 
         // Male and Female Roots list
         List<Root> availableMaleRoots = new ArrayList<>();
@@ -58,7 +63,7 @@ public class Main {
             
             // create sex session
             Sex sexSession = new Sex();
-            boolean result = sexSession.sex(pMan, pWoman);
+            boolean result = sexSession.sex(pMan, pWoman,min,max);
 
             // if sex is successful
             if(result){
