@@ -1,21 +1,23 @@
 package sim;
-import sim.ManWoman;
+import sim.Parent;
 
-public class Child {
+public class Child extends Parent{
     String gender;
     String name;
+    Parent father;
+    Parent mother;
 
-    public Child(String gender, String name){
-        this.gender = gender;
-        this.name = name;
+    public Child(String gender, String name, Parent father, Parent mother){
+        super(gender,name);
+        this.father = father;
+        this.mother = mother;
     }
 
-    //getters
-    public String getGender(){
-        return this.gender;
+    public String getFatherName(){
+        return this.father.getName();
     }
 
-    public String getName(){
-        return this.name;
+    public String getMotherName(){
+        return this.mother.getName();
     }
 }

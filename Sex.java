@@ -1,26 +1,43 @@
 package sim;
-import sim.ManWoman;
+import sim.Parent;
 import sim.Child;
 import java.util.Random;
 
+// creates child obj with male and female
 public class Sex {
-    public void sex(ManWoman male, ManWoman female){
+    public boolean sex(Parent male, Parent female){
         System.out.println(male.getName()+" and "+female.getName()+" are having sex");
-        int maleNum = Integer.parseInt(male.getName().substring(4));
-        int femaleNum = Integer.parseInt(female.getName().substring(6));
+
+        // pick random gender
         Random rand = new Random();
         int num = rand.nextInt(2);
+        String gender = null;
+        String name = null;
+        Child child = null;
 
         if(num == 0){
-            Child child = new Child("Male","maleM"+maleNum+"F"+femaleNum);
-            System.out.println("Child born with following stats:");
-            System.out.println("Gender: "+child.getGender()+", Name: "+child.getName());
+            gender = "male";
+            name = "male"+Main.maleCounter;
+
+            //create child obj also with father and mother obj
+            child = new Child(gender, name, male, female);
+            Main.maleCounter++;
         } else if(num == 1){
-            Child child = new Child("Female","femaleM"+maleNum+"F"+femaleNum);
-            System.out.println("Child born with following stats:");
-            System.out.println("Gender: "+child.getGender()+", Name: "+child.getName());
+            gender = "female";
+            name = "female"+Main.femaleCounter;
+
+            //create child obj also with father and mother obj
+            child = new Child(gender, name, male, female);
+            Main.femaleCounter++;
         } else{
             System.out.println("provide correct number");
+            return false;
         }
+
+        System.out.println("Child born with following stats:");
+        System.out.println("Gender: "+child.getGender()+", Name: "+child.getName()+", Father's name: "+child.getFatherName()+", Mother's name: "+child.getMotherName());
+
+        return true;
+
     }
 }

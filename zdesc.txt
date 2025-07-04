@@ -1,0 +1,23 @@
+Classes:
+1.Root
+    desc:
+    - Inital spawns of N couples 
+    - will be changed to parents once child are born
+
+    rules:
+    - No parents
+
+
+2.Parents
+    desc:
+
+    rules:
+    - should have child
+    - should have grandparents (except roots)
+
+
+3.Child
+
+    rules:
+    - should have no child 
+    - should have parents

@@ -1,10 +1,10 @@
 package sim;
 
-public class ManWoman {
+public class Root {
     String gender;
     String name;
 
-    public ManWoman(String gender, String name){
+    public Root(String gender, String name){
         this.gender = gender;
         this.name = name;
     }
