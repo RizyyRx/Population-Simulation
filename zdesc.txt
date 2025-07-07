@@ -24,7 +24,5 @@ Classes:
 
 TODO:
 - generation loop
-- child birth range
-- add male and female childs to lists
 - Age factor (Loop using time() for years)
 - add child info attribute for parents

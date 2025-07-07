@@ -30,6 +30,7 @@ public class Sex {
                 //create child obj also with father and mother obj
                 child = new Child(gender, name, male, female);
                 Main.maleCounter++;
+                Main.maleChilds.add(child);
             } else if(GenderNum == 1){
                 gender = "female";
                 name = "female"+Main.femaleCounter;
@@ -37,6 +38,7 @@ public class Sex {
                 //create child obj also with father and mother obj
                 child = new Child(gender, name, male, female);
                 Main.femaleCounter++;
+                Main.femaleChilds.add(child);
             } else{
                 System.out.println("provide correct number");
                 return false;

@@ -9,6 +9,8 @@ public class Main {
 
     static int maleCounter = 0;
     static int femaleCounter = 0;
+    static List<Child> maleChilds = new ArrayList<>();
+    static List<Child> femaleChilds = new ArrayList<>();
 
     public static void main(String[] args){
 
@@ -82,6 +84,7 @@ public class Main {
         }
 
         Parent.displayAllParents(maleParents, femaleParents);
+        Child.displayAllChilds(maleChilds, femaleChilds);
 
     }    
 }

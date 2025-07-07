@@ -33,8 +33,13 @@ public class Parent extends Root{
     }
 
     public static void displayAllParents( List<Parent> maleParents,  List<Parent> femaleParents){
+        System.out.println("Male parents list:");
         for(int i=0; i<maleParents.size();i++){
             System.out.println("Male parent name: "+maleParents.get(i).getName());
+        }
+
+        System.out.println("Female parents list:");
+        for(int i=0; i<femaleParents.size();i++){
             System.out.println("Female parent name: "+femaleParents.get(i).getName());
         }
     }
