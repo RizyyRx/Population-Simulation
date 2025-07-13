@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 // creates child obj with male and female
 public class Sex {
     public boolean sex(Parent male, Parent female, int minChildRange, int maxChildRange){
+        System.out.println(male.getName()+" and "+female.getName()+" are picked");
+        System.out.println();
         int childCountRange = ThreadLocalRandom.current().nextInt(minChildRange, maxChildRange+1); // max is exclusive, so add 1
         System.out.println("Child count will be "+childCountRange);
         System.out.println();
@@ -48,6 +50,7 @@ public class Sex {
             System.out.println("Child born with following stats:");
             System.out.println("Gender: "+child.getGender()+", Name: "+child.getName()+", Father's name: "+child.getFatherName()+", Mother's name: "+child.getMotherName());
             System.out.println("------------------------------------------------------------------------------------------------");
+            System.out.println();
         }
 
         return true;

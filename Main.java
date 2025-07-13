@@ -112,46 +112,51 @@ public class Main {
             System.out.println();
 
             // do till available list is not empty. (Using AND condition since both list will not have equal num of objs)
-            if(!tempMaleChilds.isEmpty()){
-                if(!tempFemaleChilds.isEmpty()){
-                    int randMaleChildNum = rand.nextInt(tempMaleChilds.size());
-                    int randFemaleChildNum = rand.nextInt(tempFemaleChilds.size());
-                    // System.out.println("Random male child index is "+randMaleChildNum);
-                    // System.out.println("Random female child index is "+randFemaleChildNum);
+            while(!tempMaleChilds.isEmpty() && !tempFemaleChilds.isEmpty()){
+                int randMaleChildNum = rand.nextInt(tempMaleChilds.size());
+                int randFemaleChildNum = rand.nextInt(tempFemaleChilds.size());
+                // System.out.println("Random male child index is "+randMaleChildNum);
+                // System.out.println("Random female child index is "+randFemaleChildNum);
 
-                    // pick a random male child and female child from the temp chid list and convert them into parents
-                    Child cMan = tempMaleChilds.get(randMaleChildNum);
-                    Child cWoman = tempFemaleChilds.get(randFemaleChildNum);
-                    
-                    Parent pMan = new Parent(cMan.getGender(), cMan.getName());
-                    Parent pWoman = new Parent(cWoman.getGender(), cWoman.getName());
-                    
-                    // create sex session
-                    Sex sexSession = new Sex();
-                    boolean result = sexSession.sex(pMan, pWoman,minChildRange,maxChildRange);
+                // pick a random male child and female child from the temp chid list and convert them into parents
+                Child cMan = tempMaleChilds.get(randMaleChildNum);
+                Child cWoman = tempFemaleChilds.get(randFemaleChildNum);
+                
+                Parent pMan = new Parent(cMan.getGender(), cMan.getName());
+                Parent pWoman = new Parent(cWoman.getGender(), cWoman.getName());
+                
+                // create sex session
+                Sex sexSession = new Sex();
+                boolean result = sexSession.sex(pMan, pWoman,minChildRange,maxChildRange);
 
-                    // if sex is successful
-                    if(result){
-                        // remove from child list
-                        maleChilds.remove(cMan);
-                        femaleChilds.remove(cWoman);
+                // if sex is successful
+                if(result){
+                    // remove from child list
+                    maleChilds.remove(cMan);
+                    femaleChilds.remove(cWoman);
 
-                        // remove from temp child list
-                        tempMaleChilds.remove(cMan);
-                        tempFemaleChilds.remove(cWoman);
+                    // remove from temp child list
+                    tempMaleChilds.remove(cMan);
+                    tempFemaleChilds.remove(cWoman);
 
-                        // add to parents list
-                        maleParents.add(pMan);
-                        femaleParents.add(pWoman);
-                    }
-                } else{
-                    System.out.println("No female left for reproduction");
-                    break;
+                    // add to parents list
+                    maleParents.add(pMan);
+                    femaleParents.add(pWoman);
                 }
-            } else{
-                    System.out.println("No male left for reproduction");
-                    break;
-                }
+
+                
+            }
+            if(tempMaleChilds.isEmpty() && tempFemaleChilds.isEmpty()){
+                System.out.println("No male or female childs left for reproduction");
+                break;
+            } else if(tempFemaleChilds.isEmpty()){
+                System.out.println("No female childs left for reproduction");
+                break;
+            }else if (tempMaleChilds.isEmpty()) {
+                
+                System.out.println("No male childs left for reproduction");
+                break;
+            }
         }
 
         System.out.println("---------------------------------------------------");
