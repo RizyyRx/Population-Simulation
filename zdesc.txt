@@ -23,6 +23,6 @@ Classes:
     - should have parents
 
 TODO:
-- generation loop
 - Age factor (Loop using time() for years)
 - add child info attribute for parents
+- add gen number for parents and childs
